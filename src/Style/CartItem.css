@@ -7,20 +7,13 @@ img {
   box-shadow: 2px 2px 4px #333;
 }
 
-@media (max-width: 492px) {
-  img {
-    width: 200px;
-    height: 20rem;
-  }
-}
-
 /* here has children 3 this one is::after
 img,div (info) , and div(increase, decrease, amount) */
 .cart-item {
   display: grid;
   grid-template-columns: auto 1fr auto;
   align-items: center;
-  grid-column-gap: 1.5rem;
+  grid-column-gap: 2rem;
   /* here for range each cart-item */
   margin: 1.5rem 0;
 }
@@ -63,4 +56,26 @@ img,div (info) , and div(increase, decrease, amount) */
 
 .amount-btn svg {
   font-size: 2rem;
+}
+
+/* responsive */
+
+@media (max-width: 320px) {
+  html,
+  body {
+    overflow-x: scroll;
+  }
+}
+
+@media (max-width: 492px) {
+  img {
+    width: 120px;
+    height: 12rem;
+  }
+  .cart-item {
+    grid-column-gap: 1rem;
+  }
+  .amount-btn svg {
+    font-size: 1.25rem;
+  }
 }

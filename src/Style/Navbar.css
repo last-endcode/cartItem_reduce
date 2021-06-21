@@ -49,3 +49,10 @@ nav {
   font-size: 1.25rem;
   margin-bottom: 0;
 }
+
+@media (max-width: 320px) {
+  html,
+  body {
+    overflow-x: scroll;
+  }
+}
