@@ -1,13 +1,191 @@
-body {
+*,
+::after,
+::before {
+  padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+}
+:root {
+  /* colors */
+  --blackColor: #000;
+  --whiteColor: #fff;
+
+  /* tints colors */
+  --navyLight-1: hsl(257.37, 38%, 19.61%);
+  --navyLight-2: hsl(258.37, 37.98%, 25.29%);
+  --navyLight-3: hsl(257.7, 38.36%, 31.18%);
+  --navyLight-4: hsl(257.5, 38.3%, 36.86%);
+  --navyLight-5: hsl(258.07, 38.25%, 42.55%);
+  --navyLight-6: hsl(257.87, 38.21%, 48.24%);
+  --navyLight-7: hsl(258.2, 37.87%, 53.92%);
+  --navyLight-8: hsl(257.69, 38.24%, 60%);
+  --navyLight-9: hsl(257.91, 38.29%, 65.69%);
+  --navyLight-10: hsl(257.14, 38.36%, 71.37%);
+
+  --navyDark-1: hsl(256.8, 37.31%, 13.14%);
+  --navyDark-2: hsl(258.26, 37.7%, 11.96%);
+  --navyDark-3: hsl(257.14, 36.84%, 11.18%);
+  --navyDark-4: hsl(258, 38.46%, 10.2%);
+  --navyDark-5: hsl(256.67, 37.5%, 9.41%);
+  --navyDark-6: hsl(258.75, 38.1%, 8.24%);
+  --navyDark-7: hsl(257.14, 36.84%, 7.45%);
+  --navyDark-8: hsl(258.46, 39.39%, 6.47%);
+  --navyDark-9: hsl(256.36, 37.93%, 5.69%);
+  --navyDark-10: hsl(260, 39.13%, 4.51%);
+  --navyDark-11: hsl(257.14, 36.84%, 3.73%);
+  --navyDark-12: hsl(260, 42.86%, 2.75%);
+
+  /* blue */
+  --blue-light-1: hsl(220.52, 88.18%, 56.86%);
+  --blue-light-2: hsl(220.33, 88.24%, 60%);
+  --blue-light-3: hsl(220.24, 88.36%, 62.94%);
+  --blue-light-4: hsl(220.39, 88.44%, 66.08%);
+  --blue-light-5: hsl(220.58, 88.54%, 69.22%);
+  --blue-light-6: hsl(220.32, 88.65%, 72.35%);
+  --blue-light-7: hsl(220.54, 88.8%, 75.49%);
+  --blue-light-8: hsl(220.21, 87.39%, 78.24%);
+  --blue-light-9: hsl(220.48, 87.37%, 81.37%);
+  --blue-light-10: hsl(220, 87.34%, 84.51%);
+
+  /* blue-dark */
+  --blue-dark-1: hsl(220.45, 88.19%, 50.2%);
+  --blue-dark-2: hsl(220.19, 88.19%, 46.47%);
+  --blue-dark-3: hsl(220.41, 88.13%, 42.94%);
+  --blue-dark-4: hsl(220.34, 88.06%, 39.41%);
+  --blue-dark-5: hsl(220.62, 87.98%, 35.88%);
+  --blue-dark-6: hsl(220.55, 87.88%, 32.35%);
+  --blue-dark-7: hsl(220.31, 87.67%, 28.63%);
+  --blue-dark-8: hsl(220.71, 87.5%, 25.1%);
+  --blue-dark-9: hsl(220.63, 87.27%, 21.57%);
+  --blue-dark-10: hsl(220, 89.01%, 17.84%);
+  --blue-dark-11: hsl(220.62, 89.04%, 14.31%);
+  --blue-dark-12: hsl(220.41, 89.09%, 10.78%);
+  --blue-dark-13: hsl(219.38, 88.89%, 7.06%);
+  --blue-dark-14: hsl(221.25, 88.89%, 3.53%);
+
+  /* orange */
+  --orange-light-1: hsl(17.2, 91.81%, 66.47%);
+  --orange-light-2: hsl(17.26, 91.25%, 68.63%);
+  --orange-light-3: hsl(17.33, 91.84%, 71.18%);
+  --orange-light-4: hsl(17.07, 91.11%, 73.53%);
+  --orange-light-5: hsl(17.14, 91.8%, 76.08%);
+  --orange-light-6: hsl(17.23, 90.99%, 78.24%);
+  --orange-light-7: hsl(17.33, 91.84%, 80.78%);
+  --orange-light-8: hsl(16.92, 90.7%, 83.14%);
+  --orange-light-9: hsl(17.01, 91.78%, 85.69%);
+
+  --orange-dark-1: hsl(17.23, 91.26%, 59.61%);
+  --orange-dark-2: hsl(17.31, 91.23%, 55.29%);
+  --orange-dark-3: hsl(17.18, 91.16%, 51.18%);
+  --orange-dark-4: hsl(17.26, 91.63%, 46.86%);
+  --orange-dark-5: hsl(17.19, 91.71%, 42.55%);
+  --orange-dark-6: hsl(17.19, 90.82%, 38.43%);
+  --orange-dark-7: hsl(17.09, 90.8%, 34.12%);
+  --orange-dark-8: hsl(16.83, 90.85%, 30%);
+  --orange-dark-9: hsl(17.14, 90.84%, 25.69%);
+  --orange-dark-10: hsl(16.97, 90.83%, 21.37%);
+  --orange-dark-11: hsl(16.71, 90.8%, 17.06%);
+  --orange-dark-12: hsl(17.29, 90.77%, 12.75%);
+  --orange-dark-13: hsl(16.5, 90.91%, 8.63%);
+  --orange-dark-14: hsl(18, 90.91%, 4.31%);
+
+  /* features */
+  --transition: all 0.3s linear;
+  --spacing: 0.1rem;
+  --radius: 0.25rem;
+  --fullRadius: 50%;
+  --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  --max-width: 1170px;
+  --fixed-width: 620px;
+  --small-width: 450px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Global */
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background: var(--grey-1);
+  line-height: 1.5;
+  font-size: 0.875rem;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  text-transform: capitalize;
+  letter-spacing: var(--spacing);
+  line-height: 1.25;
+  margin-bottom: 1.25rem;
+}
+
+h1 {
+  font-size: 3rem;
+}
+h2 {
+  font-size: 2rem;
+}
+h3 {
+  font-size: 1.25rem;
+}
+h4 {
+  font-size: 0.875rem;
+}
+
+p {
+  margin-bottom: 1.25rem;
+  color: var(--grey-6);
+}
+
+@media (min-width: 800px) {
+  h1 {
+    font-size: 4rem;
+  }
+  h2 {
+    font-size: 2.5rem;
+  }
+  h3 {
+    font-size: 1.75rem;
+  }
+  h4 {
+    font-size: 1rem;
+  }
+  body {
+    font-size: 1rem;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    line-height: 1;
+  }
+}
+
+/* Global class */
+.section {
+  width: 90vw;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+@media (min-width: 992px) {
+  .section {
+    width: 95vw;
+  }
 }

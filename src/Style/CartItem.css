@@ -1,0 +1,66 @@
+/* img */
+img {
+  width: 266px;
+  height: 25rem;
+  object-fit: cover;
+  border-radius: 0.25rem;
+  box-shadow: 2px 2px 4px #333;
+}
+
+@media (max-width: 492px) {
+  img {
+    width: 200px;
+    height: 20rem;
+  }
+}
+
+/* here has children 3 this one is::after
+img,div (info) , and div(increase, decrease, amount) */
+.cart-item {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  grid-column-gap: 1.5rem;
+  /* here for range each cart-item */
+  margin: 1.5rem 0;
+}
+
+.cart-item h4 {
+  text-transform: uppercase;
+  margin-bottom: 0.875rem;
+}
+
+.price {
+  color: rgb(87, 85, 85);
+  letter-spacing: 0.5rem;
+}
+
+.remove-btn {
+  background: transparent;
+  border: transparent;
+  outline: none;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  font-weight: 200;
+  cursor: pointer;
+}
+
+.amount {
+  text-align: center;
+  margin-bottom: 0;
+  font-size: 1.25rem;
+  padding: 1rem 0;
+}
+
+.amount-btn {
+  background: #333;
+  color: #fff;
+  border: transparent;
+  outline: none;
+  cursor: pointer;
+  border-radius: 0.25rem;
+}
+
+.amount-btn svg {
+  font-size: 2rem;
+}

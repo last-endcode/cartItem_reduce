@@ -1,0 +1,51 @@
+nav {
+  background: #333;
+  color: #fff;
+  /* beri jarak  */
+  padding: 1rem 2rem;
+}
+
+.nav-center {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+.nav-center h3 {
+  text-transform: uppercase;
+  margin-bottom: 0;
+}
+
+/* ini agar bisa amount berada diatas container svg */
+.nav-container {
+  position: relative;
+  display: block;
+}
+
+.nav-container svg {
+  font-size: 3rem;
+}
+
+.amount-container {
+  position: absolute;
+  width: 1.5rem;
+  height: 1.5rem;
+  background: #e03535;
+  color: #fff;
+  top: -0.2rem;
+  right: -0.3rem;
+  border-radius: 50%;
+  /* agar posisi p ditengah */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.amount-container p {
+  font-weight: bold;
+  font-size: 1.25rem;
+  margin-bottom: 0;
+}
