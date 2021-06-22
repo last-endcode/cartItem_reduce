@@ -1,53 +1,53 @@
-import React, { useState, useReducer, useEffect, useContext } from 'react';
-
-// for data
-import cartItems from './Data';
+import React, { useState, useEffect, useReducer, useContext } from 'react';
+// reducer & data.json
 import reducer from './reducer';
+import cartItems from './Data';
 
-// obj state
-const initial_value = {
+const initital_state = {
   cart: cartItems,
   loading: false,
+  price: 0,
   amount: 0,
   total: 0,
 };
+
 const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(reducer, initial_value);
+  // reducer
+  const [state, dispatch] = useReducer(reducer, initital_state);
 
-  const clearItem = () => {
-    dispatch({ type: 'CLEAR_ITEM' });
+  const remove = (id) => {
+    dispatch({ type: 'REMOVE', payload: id });
+  };
+  const clear = () => {
+    dispatch({ type: 'CLEAR' });
   };
 
-  const removeItem = (id) => {
-    dispatch({ type: 'REMOVE_ITEM', payload: id });
+  const increase = (id) => {
+    dispatch({ type: 'INCREASE', payload: id });
   };
 
-  // const increase = (id) => {
-  //   dispatch({ type: 'INCREASE', payload: id });
-  // };
-
-  // const decrease = (id) => {
-  //   dispatch({ type: 'DECREASE', payload: id });
-  // };
-
-  const inc_dec = (id, type) => {
-    dispatch({ type: 'INC_DEC', payload: { id, type } });
+  const decrease = (id) => {
+    dispatch({ type: 'INCREASE', payload: id });
   };
 
-  // getTotal
+  const increase_decrease = (id, type) => {
+    dispatch({ type: 'INCREASE_DECREASE', payload: { id, type } });
+  };
+
   useEffect(() => {
-    // getTotal
     dispatch({ type: 'GET_TOTAL' });
   }, [state.cart]);
   return (
     <AppContext.Provider
       value={{
         ...state,
-        clearItem,
-        removeItem,
-        inc_dec,
+        remove,
+        clear,
+        increase_decrease,
+        increase,
+        decrease,
       }}
     >
       {children}

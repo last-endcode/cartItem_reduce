@@ -1,24 +1,18 @@
 import React from 'react';
-
-// components needed
 import Navbar from './Components/Navbar';
 import CartContent from './Components/CartContent';
-import Loading from './Components/Loading';
 import { useGlobalContext } from './Components/Context';
 
 function App() {
   const { loading } = useGlobalContext();
 
   if (loading) {
-    return <Loading />;
+    return <h2>Loading ...</h2>;
   }
-
   return (
     <>
-      <main>
-        <Navbar />
-        <CartContent />
-      </main>
+      <Navbar />
+      <CartContent />
     </>
   );
 }

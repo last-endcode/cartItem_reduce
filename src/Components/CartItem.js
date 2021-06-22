@@ -1,36 +1,39 @@
 import React from 'react';
+import { TiArrowSortedDown, TiArrowSortedUp } from 'react-icons/ti';
 import '../Style/CartItem.css';
-import { RiArrowUpSFill, RiArrowDownSFill } from 'react-icons/ri';
 import { useGlobalContext } from './Context';
 
-function CartItem({ id, title, price, img, amount }) {
-  const { removeItem, inc_dec } = useGlobalContext();
+function CartItem({ id, title, img, price2, amount }) {
+  const { remove, increase_decrease, increase, decrease } = useGlobalContext();
   return (
     <>
       <article className='cart-item'>
-        <img src={img} alt='' />
-        {/* info like title, price, remove */}
+        <img src={img} className='cart-pic' alt={title} />
         <div>
           <h4>{title}</h4>
-          <h4 className='price'>${price}</h4>
-          {/* remove item */}
-          <button className='remove-btn' onClick={() => removeItem(id)}>
+          <h4 className='price'>{price2}</h4>
+          {/* remove */}
+          <button className='remove-btn' onClick={() => remove(id)}>
             remove item
           </button>
         </div>
-        {/* increase decrease */}
+
+        {/* increase & decrease */}
         <div>
-          {/* increase */}
-          <button className='amount-btn' onClick={() => inc_dec(id, 'inc')}>
-            <RiArrowUpSFill />
+          <button
+            className='amount-btn'
+            onClick={() => increase_decrease(id, 'increase')}
+          >
+            <TiArrowSortedUp />
           </button>
 
-          {/* amount */}
-          <p className='amount'>{amount}</p>
+          <p className='amount-item'>{amount}</p>
 
-          {/* decrease */}
-          <button className='amount-btn' onClick={() => inc_dec(id, 'dec')}>
-            <RiArrowDownSFill />
+          <button
+            className='amount-btn'
+            onClick={() => increase_decrease(id, 'decrease')}
+          >
+            <TiArrowSortedDown />
           </button>
         </div>
       </article>

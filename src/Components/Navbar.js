@@ -1,6 +1,6 @@
 import React from 'react';
-import { AiFillShopping } from 'react-icons/ai';
 import '../Style/Navbar.css';
+import { FaShoppingCart } from 'react-icons/fa';
 import { useGlobalContext } from './Context';
 
 function Navbar() {
@@ -9,11 +9,9 @@ function Navbar() {
     <nav>
       <div className='nav-center'>
         <h3>samsung</h3>
-        <div className='nav-container'>
-          <AiFillShopping />
-          <div className='amount-container'>
-            <p>{amount}</p>
-          </div>
+        <div className='amount-container'>
+          <FaShoppingCart />
+          <p className='amount'>{amount}</p>
         </div>
       </div>
     </nav>

@@ -2,17 +2,24 @@ import React from 'react';
 import { useGlobalContext } from './Context';
 import CartItem from './CartItem';
 import '../Style/CartContent.css';
+import { GiShoppingBag } from 'react-icons/gi';
 
 function CartContent() {
-  const { cart, total, clearItem } = useGlobalContext();
+  const { cart, clear, total } = useGlobalContext();
+
   if (cart.length === 0) {
     return (
       <>
         <section className='cart'>
           <header>
-            <h2>your item</h2>
-            <h4 className='empty-cart'>is currently empty</h4>
+            <h3>your item</h3>
           </header>
+          <div className='cart-empty'>
+            <h3>
+              <GiShoppingBag />
+              hello, your item is empty.
+            </h3>
+          </div>
         </section>
       </>
     );
@@ -21,27 +28,22 @@ function CartContent() {
   return (
     <>
       <section className='cart'>
-        {/* cart header */}
         <header>
-          <h2>your item</h2>
+          <h3>your item</h3>
         </header>
 
-        {/* cart item */}
         <div>
           {cart.map((item) => {
-            return <CartItem key={item.id} {...item} />;
+            return <CartItem key={item.id} {...item}></CartItem>;
           })}
         </div>
-
-        {/* cart footer */}
         <footer>
-          <hr />
-          <div className='cart-total'>
-            <h4>
-              total <span>IDR {total}</span>
-            </h4>
+          <hr style={{ marginBottom: '0.1rem', color: '#ddd' }} />
+          <div className='amount-total'>
+            <h4>total</h4>
+            <h4>{total}</h4>
           </div>
-          <button className='btn clear-btn' onClick={clearItem}>
+          <button className='clear-item' onClick={clear}>
             clear cart
           </button>
         </footer>
